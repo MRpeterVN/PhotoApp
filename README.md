@@ -38,3 +38,5 @@ dependencies {
     // uCrop
     implementation("com.github.yalantis:ucrop:2.2.8")
 }
+![Screenshot 2024-11-01 154152](https://github.com/user-attachments/assets/c97dbb66-a6c7-41ae-aacb-472015afb3b3)
+![Screenshot 2024-11-01 154515](https://github.com/user-attachments/assets/35d7e8c2-4c87-4ff4-96ae-0f359beab316)
