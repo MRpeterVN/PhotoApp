@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/btnCapture"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/camera"
+        android:scaleType="centerCrop"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#fff" />
+
+    <ImageButton
+        android:id="@+id/toggleFlash"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/baseline_flash_on_24"
+        app:tint="#fff"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_above="@id/btnCapture"/>
+
+    <ImageButton
+        android:id="@+id/flipCamera"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_above="@id/toggleFlash"
+        android:src="@drawable/baseline_flip_camera_android_24"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#fff" />
+
+    <ImageView
+        android:id="@+id/imageThumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/baseline_aspect_ratio_24"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</RelativeLayout>
