@@ -17,5 +17,6 @@ class MainVM(context: Context) : ViewModel() {
 
     fun deleteImage(uri: String) {
         repository.deleteImage(uri)
+
     }
 }

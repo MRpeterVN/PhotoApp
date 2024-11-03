@@ -77,8 +77,8 @@ class EditImageActivity : AppCompatActivity() {
         }
         binding.btnDelete.setOnClickListener {
             viewModel.deleteImage(imageUri.toString())
-            finish()
 
+            finish()
         }
 
         binding.btnBack.setOnClickListener {

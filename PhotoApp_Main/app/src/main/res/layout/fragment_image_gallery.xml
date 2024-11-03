@@ -1,8 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-  >
+    android:orientation="vertical">
+
+    <!-- Dòng chữ "Thư viện ảnh" -->
+    <TextView
+        android:id="@+id/tvLibraryHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Thư viện ảnh"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="20sp"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/tvHeader"
