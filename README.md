@@ -43,14 +43,8 @@ dependencies {
 
 
 
-https://github.com/user-attachments/assets/fae51286-b06a-4ac3-8bd5-af7b6ceba469
+
+https://github.com/user-attachments/assets/34d1eb83-76cf-49d2-a72c-aeb310615835
 
 
-https://github.com/user-attachments/assets/d038f4bf-a320-4833-abb4-51acf6f9ff19
-
-
-https://github.com/user-attachments/assets/30b95c8d-76d7-474d-8510-9cfe057c2ef2
-
-
-https://github.com/user-attachments/assets/d15b81da-5070-4f73-84b0-247bef0ac406
 
