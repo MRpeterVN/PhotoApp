@@ -1,5 +1,6 @@
 package com.example.photoapp_main
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -38,7 +39,6 @@ class EditImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // add text
 
         mPhotoEditor = PhotoEditor.Builder(this, binding.photoEditorView)
             .setPinchTextScalable(true)
@@ -55,12 +55,8 @@ class EditImageActivity : AppCompatActivity() {
         }
 
         binding.seekBarRed.setOnSeekBarChangeListener(colorAdjustListener { value -> red = value })
-        binding.seekBarGreen.setOnSeekBarChangeListener(colorAdjustListener { value ->
-            green = value
-        })
-        binding.seekBarBlue.setOnSeekBarChangeListener(colorAdjustListener { value ->
-            blue = value
-        })
+        binding.seekBarGreen.setOnSeekBarChangeListener(colorAdjustListener { value -> green = value })
+        binding.seekBarBlue.setOnSeekBarChangeListener(colorAdjustListener { value -> blue = value })
 
         binding.btnSave.setOnClickListener {
             saveEditedImage()
@@ -77,14 +73,11 @@ class EditImageActivity : AppCompatActivity() {
         }
         binding.btnDelete.setOnClickListener {
             viewModel.deleteImage(imageUri.toString())
-
             finish()
         }
 
         binding.btnBack.setOnClickListener {
-
             finish()
-
         }
     }
 
@@ -163,13 +156,11 @@ class EditImageActivity : AppCompatActivity() {
                 Toast.makeText(this@EditImageActivity, "Save failed!", Toast.LENGTH_SHORT).show()
             }
         })
-
     }
 
     private fun cropImage(imageUri: Uri?) {
         imageUri ?: return
-        val destinationUri =
-            Uri.fromFile(File(outputDirectory, "cropped_${System.currentTimeMillis()}.jpg"))
+        val destinationUri = Uri.fromFile(File(outputDirectory, "cropped_${System.currentTimeMillis()}.jpg"))
         UCrop.of(imageUri, destinationUri)
             .withAspectRatio(1f, 1f) // Tỉ lệ cắt, có thể thay đổi
             .start(this)
@@ -181,10 +172,21 @@ class EditImageActivity : AppCompatActivity() {
             SimpleDateFormat(format, Locale.US).format(System.currentTimeMillis()) + extension
         )
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            val resultUri = UCrop.getOutput(data!!)
+            binding.photoEditorView.source.load(resultUri) {
+                allowHardware(false)
+            }
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            val cropError = UCrop.getError(data!!)
+            Toast.makeText(this, "Crop error: ${cropError?.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     companion object {
         private const val FILENAME = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val PHOTO_EXTENSION = ".jpg"
     }
 }
-

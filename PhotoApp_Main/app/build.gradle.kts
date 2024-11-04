@@ -79,4 +79,5 @@ dependencies {
     implementation ("com.burhanrashid52:photoeditor:3.0.2")
 
     implementation ("com.google.android.material:material:1.6.1")
+
 }
